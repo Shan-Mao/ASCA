@@ -106,7 +106,6 @@ body[data-stage="3"]::after, body[data-stage="4"]::after, body[data-stage="5"]::
 .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 52px; align-items: center; }
 .kicker .leaf { font-size: 13px; line-height: 1; }
 .kicker { display: inline-flex; align-items: center; gap: 8px; font: 9px var(--mono); letter-spacing: 1.4px; text-transform: uppercase; color: #46705a; background: var(--sky-soft); padding: 7px 14px; border-radius: 100px; }
-.kicker::before { display: none; }
 .hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 5vw, 70px); line-height: 1.16; letter-spacing: .2px; margin: 22px 0 20px; color: var(--ink); }
 .hero h1 .marker { color: var(--leaf); position: relative; white-space: nowrap; }
 .hero h1 .marker i { font-style: normal; color: var(--iodine); }
@@ -131,7 +130,6 @@ body[data-stage="3"]::after, body[data-stage="4"]::after, body[data-stage="5"]::
 }
 .quiet-link:hover { color: #35604a; }
 .quiet-link svg { width: 13px; height: 13px; }
-.quiet-link::after { display: none; }
 button.quiet-link:focus-visible { outline: 2px solid #6fae72; outline-offset: 4px; border-radius: 4px; }
 .hero-points { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 18px 0 0; margin: 22px 0 0; border-top: 1px solid var(--steel-line); font-size: 10.5px; color: var(--ink-soft); }
 .hero-points li { display: inline-flex; align-items: center; gap: 7px; }
@@ -446,8 +444,7 @@ body[data-stage="3"] .exit, body[data-stage="4"] .exit, body[data-stage="5"] .ex
 .intake-close { position: absolute; top: 10px; right: 10px; display: flex; border: 0; background: none; padding: 4px; }
 .intake-close svg { width: 15px; height: 15px; }
 .intake .kicker { justify-content: center; }
-.intake .kicker::before { display: none; }
-.intake h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.4; margin: 17px 0 12px; }
+.intake .intake h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.4; margin: 17px 0 12px; }
 .intake-desc { font-size: 10px; line-height: 2; color: var(--muted); }
 .intake-row { display: flex; justify-content: space-between; gap: 14px; text-align: left; border-block: 1px solid var(--steel-line); padding-block: 18px; margin-block: 21px; flex-wrap: wrap; }
 .intake-row div { display: flex; flex-direction: column; gap: 7px; }

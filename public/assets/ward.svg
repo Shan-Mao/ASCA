@@ -283,7 +283,8 @@
       <path d="M860 560 L900 560 L1000 1000 L910 1000 Z" fill="#e6dac2" opacity=".1"/>
     </g>
     <g opacity=".5" filter="url(#wBlur2)">
-      <ellipse cx="800" cy="612" rx="74" ry="26" fill="#fdf1d6" opacity=".5"/>
+      <ellipse cx="800" cy="596" rx="52" ry="16" fill="#fdf1d6" opacity=".3"/>
+      <path d="M770 540 L830 540 L846 700 L754 700 Z" fill="#e8dcc2" opacity=".07"/>
       <ellipse cx="620" cy="700" rx="44" ry="16" fill="#e9dbc0" opacity=".28"/>
       <ellipse cx="1010" cy="712" rx="52" ry="18" fill="#e0d2b8" opacity=".24"/>
       <ellipse cx="420" cy="820" rx="70" ry="22" fill="#cfc2a8" opacity=".16"/>
@@ -307,7 +308,7 @@
 
   <!-- FIGURE: small, upright nurse silhouette deep down the hall -->
   <g>
-    <ellipse cx="800" cy="492" rx="72" ry="62" fill="#e8dcc2" opacity=".18" filter="url(#wBlur4)"/>
+    <ellipse cx="800" cy="486" rx="66" ry="56" fill="#e8dcc2" opacity=".13" filter="url(#wBlur4)"/>
     <ellipse cx="800" cy="528" rx="19" ry="3.6" fill="#141312" opacity=".7"/>
     <!-- mirrored smudge on the wet floor -->
     <path d="M791 530 C787 566 784 602 783 630 L817 630 C816 602 813 566 809 530 Z" fill="#141312" opacity=".16" filter="url(#wBlur3)"/>

@@ -13,6 +13,16 @@
   const enterSub = document.querySelector('.enter-message .sub');
   const hudInstruction = document.querySelector('.hud-instruction');
   const hudTime = document.querySelector('.hud-time');
+  const camTimes = [...document.querySelectorAll('.cam-time')];
+  const camFourNote = document.querySelector('.cam-4 .cam-bar b');
+  function localStamp(offsetSeconds) {
+    const now = new Date(Date.now() - offsetSeconds * 1000);
+    return [now.getHours(), now.getMinutes(), now.getSeconds()].map((n) => String(n).padStart(2, '0')).join(':');
+  }
+  function revealViewerTime() {
+    camTimes.forEach((node, index) => text(node, localStamp((camTimes.length - index) * 83)));
+    text(camFourNote, '你正在被看着');
+  }
   const gate = document.querySelector('.gate');
   const themeMeta = document.querySelector('meta[name="theme-color"]');
   const deskPanel = document.querySelector('#desk-panel');
@@ -103,6 +113,7 @@
     text(deskGreeting, deskReplies[next][0]);
     text(deskAnswer, deskReplies[next][1]);
     text(deskDot, next >= 3 ? '!' : '1');
+    if (next >= 4) revealViewerTime();
     updateCareNote();
     dirty = true;
     schedule();
@@ -133,23 +144,32 @@
     css('--descent', depth.toFixed(4));
     css('--glow-opacity', clamp((depth - .2) / .3).toFixed(3));
     css('--message-opacity', (1 - clamp((depth - .24) / .12)).toFixed(3));
-    css('--presence-opacity', clamp((depth - .3) / .16).toFixed(3));
+    css('--presence-opacity', clamp((depth - .18) / .12).toFixed(3));
     css('--side-opacity', (clamp((depth - .46) / .08) * (1 - clamp((depth - .66) / .06))).toFixed(3));
-    css('--nurse-near', reduced.matches ? '0' : clamp((depth - .2) / .62).toFixed(4));
-    css('--last-opacity', (clamp((depth - .44) / .08) * (1 - clamp((depth - .6) / .05))).toFixed(3));
-    css('--final-opacity', (clamp((depth - .62) / .05) * (depth < .9 ? 1 : 0)).toFixed(3));
+    css('--nurse-near', reduced.matches ? '0' : clamp((depth - .12) / .55).toFixed(4));
+    css('--last-opacity', (clamp((depth - .28) / .06) * (1 - clamp((depth - .46) / .05))).toFixed(3));
+    css('--final-opacity', (clamp((depth - .5) / .05) * (depth < .9 ? 1 : 0)).toFixed(3));
     css('--jump-opacity', depth > .9 ? '1' : '0');
     body.classList.toggle('approach', depth > .34 && depth < .9);
+    // Hesitation is punished: the longer the visitor stops moving, the closer she gets.
+    const idle = performance.now() - lastScrollAt;
+    if (!reduced.matches && depth > .25 && depth < .92 && idle > 6500) {
+      css('--nurse-near', clamp((depth - .12) / .55 + Math.min((idle - 6500) / 32000, .55)).toFixed(4));
+      css('--presence-opacity', clamp(.55 + (depth - .3)).toFixed(3));
+    }
 
     progress.style.transform = `scaleX(${clamp(y / pageRange)})`;
     applyScene(depth > .3 ? 2 : depth > .14 ? 1 : 0);
-    if (stage === 0 && y <= 1 && jumped) resetJump();
+    if (stage === 0 && y <= 1 && (jumped || beatShown || afterShown || grabbed)) resetJump();
     if (depth > .9 && !jumped) triggerJump();
+    checkBeat(depth);
+    checkAfter(depth);
+    checkGrab(depth);
 
     title(depth > .88 ? 'MERCY HOUSE — 她已经进来了' : depth > .58 ? 'MERCY HOUSE — 别让她进来' : titles[stage]);
     text(hudInstruction, depth > .86 ? '她还不知道你醒着' : depth > .58 ? '不要回应叩门声' : '保持安静，继续向下 ↓');
     text(hudTime, `04:33:${String(Math.floor(depth * 59)).padStart(2, '0')}`);
-    text(gate, depth > .45 ? '东翼 · 已封锁' : depth > .22 ? '东翼走廊' : '东翼 0333');
+    text(gate, depth > .3 ? `她距离你 ${Math.max(1, Math.round((1 - depth) * 12))} 步` : '东翼 0333');
     updateSound();
   }
 
@@ -157,6 +177,71 @@
     if (remeasure) dirty = true;
     if (frame !== null) return;
     frame = window.requestAnimationFrame(render);
+  }
+
+  // ---- extra scare beats ----
+  function blink() {
+    if (reduced.matches) return;
+    const flashOn = () => body.classList.add("blink-on");
+    const flashOff = () => body.classList.remove("blink-on");
+    flashOn();
+    playJumpSound();
+    window.setTimeout(flashOff, 120);
+    window.setTimeout(() => { if (!reduced.matches) flashOn(); }, 330);
+    window.setTimeout(flashOff, 430);
+    window.setTimeout(() => { if (!reduced.matches) flashOn(); }, 640);
+    window.setTimeout(flashOff, 760);
+  }
+
+  function grab() {
+    if (reduced.matches) return;
+    body.classList.add("grab-on");
+    playJumpSound();
+    window.setTimeout(() => body.classList.remove("grab-on"), 900);
+  }
+
+  let lastScrollAt = performance.now();
+  window.addEventListener("scroll", () => { lastScrollAt = performance.now(); body.classList.remove("stay-on"); }, { passive: true });
+
+  function checkStay() {
+    if (reduced.matches) return;
+    const idle = performance.now() - lastScrollAt;
+    const inDescent = depthNow > .3 && depthNow < .92;
+    if (idle > 9000 && inDescent) body.classList.add("stay-on");
+    if (idle < 1500) body.classList.remove("stay-on");
+  }
+  window.setInterval(checkStay, 1000);
+  window.setInterval(() => { if (stage >= 4 && stage < 5) revealViewerTime(); }, 1000);
+
+  let beatShown = false;
+  function checkBeat(depth) {
+    if (reduced.matches) return;
+    if (!beatShown && depth > .5 && depth < .9) { beatShown = true; blink(); }
+  }
+
+  // A fake ending: the screen goes calm and bright for a second, then takes it away.
+  let afterShown = false;
+  let afterTimer = null;
+  function checkAfter(depth) {
+    if (reduced.matches) return;
+    if (!afterShown && depth > .885) {
+      afterShown = true;
+      body.classList.add("after-on");
+      afterTimer = window.setTimeout(() => {
+        body.classList.add("after-fail");
+        playJumpSound();
+      }, 1250);
+      afterTimer = window.setTimeout(() => {
+        body.classList.remove("after-on", "after-fail");
+        afterTimer = null;
+      }, 2450);
+    }
+  }
+
+  let grabbed = false;
+  function checkGrab(depth) {
+    if (reduced.matches || grabbed) return;
+    if (depth > .93) { grabbed = true; grab(); }
   }
 
   function triggerJump() {
@@ -173,6 +258,12 @@
 
   function resetJump() {
     jumped = false;
+    beatShown = false;
+    afterShown = false;
+    grabbed = false;
+    body.classList.remove("blink-on","after-on","grab-on","stay-on");
+    window.clearTimeout(afterTimer);
+    afterTimer = null;
     window.clearTimeout(jumpTimer);
     jumpTimer = null;
     body.classList.remove('jump-flash');

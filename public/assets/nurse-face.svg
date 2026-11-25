@@ -117,9 +117,6 @@
   </defs>
 
   <!-- night -->
-  <rect width="900" height="1000" fill="url(#bg)"/>
-  <rect width="900" height="1000" fill="url(#keyL)"/>
-  <rect width="900" height="1000" fill="#141312" opacity=".16"/>
 
 
   <!-- shoulders / chest -->

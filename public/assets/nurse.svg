@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-labelledby="nurseTitle nurseDesc">
-  <title id="nurseTitle">夜班护士 · 全身</title>
-  <desc id="nurseDesc">原创低光护士全身像：骨白旧制服、暗红胸牌、褶皱护士帽，口罩遮脸，手臂异常细长。</desc>
+  <title id="nurseTitle">私立疗养院夜班护士</title>
+  <desc id="nurseDesc">原创全身立像：骨白旧制服、暗红胸牌与细腰带，褶皱护士帽，窄肩，头略歪，旧口罩遮住下半张脸，只露一道窄眼缝与一点暗红反光；长袖垂到膝下，低光里衣服上有大片渐变大阴影，无粗描边，无绿色。</desc>
 
   <defs>
     <linearGradient id="bg" x1=".18" y1="0" x2=".8" y2="1">
@@ -23,7 +23,6 @@
       <stop offset="1" stop-color="#141312" stop-opacity=".92"/>
     </radialGradient>
 
-    <!-- cloth across a body: highlight left, shadow right of each mass -->
     <linearGradient id="clothT" x1=".04" y1=".02" x2=".96" y2=".9">
       <stop offset="0" stop-color="#f9f4ea"/>
       <stop offset=".1" stop-color="#eee8dc"/>
@@ -121,7 +120,6 @@
   <ellipse cx="452" cy="1074" rx="148" ry="15" fill="#141312" opacity=".6" filter="url(#b11)"/>
   <ellipse cx="452" cy="1060" rx="44" ry="6" fill="#090807" opacity=".56" filter="url(#b2)"/>
 
-  <!-- legs -->
   <g>
     <path d="M424 984 C422 1008 421 1028 422 1044 L448 1044 C448 1026 449 1006 451 984 Z" fill="#5f584b"/>
     <path d="M457 984 C459 1006 460 1026 460 1044 L486 1044 C487 1028 486 1008 484 984 Z" fill="#3d382f"/>
@@ -129,7 +127,6 @@
     <path d="M454 1036 C466 1026 490 1028 500 1038 C510 1046 508 1061 498 1066 C480 1074 462 1072 452 1066 C444 1060 444 1042 454 1036 Z" fill="#171513"/>
   </g>
 
-  <!-- far arm -->
   <g>
     <path d="M496 404 C510 420 517 452 519 488 C521 528 520 570 518 614 C516 666 517 722 521 780 C523 816 519 840 511 850 C503 859 496 852 494 834 C490 788 488 732 489 674 C490 616 487 560 480 514 C474 476 466 446 456 420 Z" fill="url(#clothFar)"/>
     <g filter="url(#b11)" fill="none" opacity=".34">
@@ -138,7 +135,6 @@
     </g>
   </g>
 
-  <!-- dress: narrow shoulders, real waist, long skirt -->
   <path d="M450 396 C428 396 411 401 400 411 C392 424 389 444 389 466 C389 491 392 513 395 533 C397 547 396 561 394 575 C392 597 394 617 397 635 C391 713 373 831 356 923 C350 949 348 969 349 987 L551 987 C552 969 550 949 544 923 C527 831 509 713 503 635 C506 617 508 597 506 575 C504 561 503 547 505 533 C508 513 511 491 511 466 C511 444 508 424 500 411 C489 401 472 396 450 396 Z" fill="url(#clothT)"/>
 
   <g clip-path="url(#clipTorso)">
@@ -149,7 +145,6 @@
       <ellipse cx="448" cy="564" rx="60" ry="42" fill="#948c7d" opacity=".12"/>
     </g>
 
-    <!-- plane structure -->
     <g filter="url(#b22)" opacity=".5">
       <path d="M406 416 C420 448 434 462 450 466 C466 462 480 448 494 416 C498 440 492 462 478 476 C466 488 450 492 450 492 C450 492 434 488 422 476 C408 462 402 440 406 416 Z" fill="#fdf7ea" opacity=".3"/>
       <path d="M396 480 C406 502 426 512 450 512 C474 512 494 500 504 478 C506 502 492 522 472 530 C452 537 430 533 412 522 C398 514 394 496 396 480 Z" fill="#fef9ec" opacity=".42"/>
@@ -201,7 +196,6 @@
     <path d="M390 674 C402 736 406 820 402 900" stroke="#b6ae9f" stroke-width="1.8" fill="none" opacity=".15"/>
   </g>
 
-  <!-- near arm -->
   <g>
     <path d="M420 424 C436 494 436 574 430 652 C424 750 422 852 422 930 L454 932 C448 850 450 750 456 650 C462 566 460 486 448 428 Z" fill="#141312" opacity=".3" filter="url(#b11)"/>
 
@@ -242,7 +236,6 @@
     </g>
   </g>
 
-  <!-- neck, short -->
   <g>
     <path d="M428 340 L472 340 L472 396 C472 406 464 412 450 412 C436 412 428 406 428 396 Z" fill="#a19681"/>
     <path d="M432 346 L444 346 L444 404 L432 398 Z" fill="#cabba6" opacity=".46"/>
@@ -250,7 +243,6 @@
     <path d="M426 392 C437 404 463 404 474 392 L474 408 C463 418 437 418 426 408 Z" fill="#141312" opacity=".42" filter="url(#b5)"/>
   </g>
 
-  <!-- HEAD: tilted -->
   <g transform="rotate(-3 450 286)">
     <path d="M450 212 C425 212 411 233 409 262 C407 290 413 318 426 335 C436 346 447 351 453 351 C462 351 475 341 483 328 C493 311 495 284 492 259 C488 233 474 212 450 212 Z" fill="url(#skinG)"/>
     <g clip-path="url(#clipHead)">
@@ -264,7 +256,6 @@
       <path d="M407 238 C434 256 476 254 492 236 C492 252 489 261 485 266 C458 280 422 278 410 260 Z" fill="#141312" opacity=".4" filter="url(#b5)"/>
     </g>
 
-    <!-- the slit eye -->
     <ellipse cx="437" cy="276" rx="24" ry="10" fill="url(#socketG)" opacity=".94"/>
     <path d="M425 276 C433 270 446 269 455 274 C455 279 449 283 441 284 C432 285 427 282 425 278 Z" fill="#0e0c0a"/>
     <g mask="url(#mGlow)">
@@ -276,7 +267,6 @@
     <path d="M424 272 C432 267 446 266 455 270" stroke="#6b6153" stroke-width=".9" fill="none" opacity=".34"/>
     <path d="M459 272 C465 274 468 277 469 279" stroke="#36312a" stroke-width="1.1" fill="none" opacity=".3"/>
 
-    <!-- worn mask -->
     <path d="M411 292 C439 302 471 301 489 292 C495 317 489 340 470 352 C456 360 441 359 431 350 C419 339 409 316 411 292 Z" fill="url(#maskG)"/>
     <g clip-path="url(#clipMask)">
       <path d="M407 300 C437 313 471 312 491 298 L491 309 C471 323 437 324 407 311 Z" fill="#bab2a3" opacity=".3"/>
@@ -297,7 +287,6 @@
     <path d="M409 260 C407 236 422 216 450 214 C473 212 489 229 489 254 C482 237 468 226 447 226 C428 226 413 240 409 260 Z" fill="#221f1b"/>
     <path d="M412 264 C408 276 408 288 413 297" stroke="#282520" stroke-width="3" fill="none" opacity=".28"/>
 
-    <!-- cap -->
     <g>
       <path d="M406 236 C398 210 415 186 442 183 C468 180 490 195 494 218 C497 239 488 251 472 254 C444 260 415 258 406 236 Z" fill="url(#capG)"/>
       <path d="M404 218 C430 210 472 210 496 220 L496 229 C472 219 430 219 404 227 Z" fill="#bab2a3" opacity=".36"/>

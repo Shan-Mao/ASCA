@@ -54,33 +54,6 @@ public/                       # 唯一的静态根目录
 
 这是一个**虚构作品**，不提供任何真实医疗、护理或预约服务，也不收集个人信息。
 
-## 本地运行
-
-需要 Node.js 24，零第三方依赖、无构建：
-
-```bash
-npm start
-```
-
-- 首页：<http://localhost:25798/>
-- 情景：<http://localhost:25798/scenes/care-home/>
-- 模板：<http://localhost:25798/template/>
-
-语法检查：
-
-```bash
-npm run check
-```
-
-## 入口、端口与部署
-
-- 根入口 `index.js`；`npm start` 即 `node index.js`。
-- Node `>=24 <25`；监听 `0.0.0.0`。
-- 端口优先级：`SERVER_PORT` → `PORT` → `25798`。
-- 部署到 Nodaroo：选 Node 24，`MAIN_FILE=index.js`，把 `index.js`、`package.json`、`public/` 放在同一层上传。
-- 从 GitHub 拉取：配置 `GIT_ADDRESS` 与 `BRANCH`；公开仓库无需凭据。令牌只填在面板里，不要写进仓库。
-- 静态根只有 `public`，项目根目录的其他文件不会对外暴露；`/health` 返回 JSON 状态。
-
 ## 图片来源
 
 `scenes/care-home/media/` 内的照片来自 Unsplash，以及 Wikimedia Commons 的公有领域 / 知识共享素材。新增素材时请一并记录来源与许可。

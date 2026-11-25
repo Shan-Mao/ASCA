@@ -27,6 +27,8 @@
   const plate = document.querySelector('#theatre-plate');
   const lampBtn = document.querySelector('#theatre-lamp');
   const opNote = document.querySelector('[data-op-note]');
+  const shroudCount = document.querySelector('[data-shroud]');
+  const tagExtra = document.querySelector('.shroud-ridge.r4');
   const soundButtons = [...document.querySelectorAll('[data-sound-toggle]')];
   const soundLabels = [...document.querySelectorAll('[data-sound-label], .sound-text')];
   const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
@@ -127,10 +129,19 @@
     text(openingSub, c[2]);
   }
 
+  function paintShroud(depth) {
+    if (shroudCount) text(shroudCount, depth > .28 ? 'UNDER THE SHEET: 5  ←  多出来的那一处' : 'UNDER THE SHEET: 4');
+    if (tagExtra) tagExtra.classList.toggle('extra-on', depth > .28);
+    css('--extra-glow', clamp((depth - .28) / .1).toFixed(3));
+    css('--shroud-opacity', clamp((depth - .02) / .1).toFixed(3));
+  }
+
   function render() {
     frame = null;
+    try {
     measure();
     const y = window.scrollY;
+    paintShroud(clamp((y - descentTop) / descentRange));
     const line = y + window.innerHeight * .42;
     let next = 0;
     tops.forEach((top, i) => { if (line >= top) next = Math.min(i, chapters.length - 1); });
@@ -147,6 +158,12 @@
     css('--last-opacity', (clamp((depth - .3) / .07) * (1 - clamp((depth - .48) / .05))).toFixed(3));
     css('--final-opacity', (clamp((depth - .56) / .05) * (depth < .9 ? 1 : 0)).toFixed(3));
     css('--jump-opacity', depth > .9 ? '1' : '0');
+    css('--shroud-opacity', clamp((depth - .02) / .1).toFixed(3));
+    css('--extra-glow', clamp((depth - .28) / .1).toFixed(3));
+    if (tagExtra) tagExtra.classList.toggle('extra-on', depth > .28);
+    if (depth > .28 && shroudCount) text(shroudCount, 'UNDER THE SHEET: 5  ←  多出来的那一处');
+    else if (shroudCount) text(shroudCount, 'UNDER THE SHEET: 4');
+
     body.classList.toggle('approach', depth > .3 && depth < .9);
 
     const idle = performance.now() - lastScrollAt;
@@ -168,6 +185,9 @@
     text(hudTime, `04:33:${String(Math.floor(depth * 59)).padStart(2, '0')}`);
     text(hudCount, depth > .3 ? `他还剩 ${Math.max(1, Math.round((1 - depth) * 11))} 针` : '档案 0333');
     updateSound();
+    } catch (error) {
+      if (!window.__mercyOnce) { window.__mercyOnce = true; console.error(error); }
+    }
   }
 
   function schedule() {
@@ -472,10 +492,13 @@
     css('--last-opacity', '0');
     css('--final-opacity', '0');
     css('--jump-opacity', '0');
+    css('--shroud-opacity', '0');
+    css('--extra-glow', '0');
     progress.style.transform = 'scaleX(0)';
     text(hudInstruction, '保持清醒，继续向下 ↓');
     text(hudTime, '04:33:00');
     text(hudCount, '档案 0333');
+    if (shroudCount) text(shroudCount, 'UNDER THE SHEET: 4');
     title(titles[0]);
     if (window.location.hash) history.replaceState(history.state, '', window.location.pathname + window.location.search);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

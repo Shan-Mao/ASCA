@@ -2,12 +2,12 @@
   "name": "asca",
   "version": "0.1.0",
   "private": true,
-  "description": "DEMETER ATELIER: an original scroll-driven surgical-grotesque horror site for a fictional corrective-surgery institute",
+  "description": "ASCA: a static site hosting self-contained scenes, mini games and small tools",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "check": "node --check index.js && node --check public/app.js"
+    "check": "node --check index.js && node --check public/scenes/care-home/app.js"
   },
   "engines": {
     "node": ">=24 <25"

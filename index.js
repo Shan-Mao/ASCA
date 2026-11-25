@@ -4,16 +4,22 @@ const path = require('node:path');
 
 const port = Number(process.env.SERVER_PORT || process.env.PORT || 25798);
 const publicRoot = path.resolve(__dirname, 'public');
+const scenesRoot = path.join(publicRoot, 'scenes');
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml; charset=utf-8',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
   '.webp': 'image/webp',
+  '.gif': 'image/gif',
   '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
+  '.mp3': 'audio/mpeg',
+  '.wav': 'audio/wav',
 };
 
 function send(req, res, status, body, contentType = 'text/plain; charset=utf-8') {
@@ -28,6 +34,28 @@ function isInside(root, target) {
   const relative = path.relative(root, target);
   return relative !== '' && relative !== '..'
     && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative);
+}
+
+// Every scene is a self-contained folder under public/scenes/<slug>/.
+// This makes a scene addressable as /scenes/<slug>/ without extra config.
+async function resolveSceneIndex(pathname) {
+  const match = pathname.match(/^\/scenes\/([a-z0-9][a-z0-9-]*)\/?$/i);
+  if (!match) return null;
+  const slug = match[1];
+  const indexPath = path.join(scenesRoot, slug, 'index.html');
+  try {
+    const stats = await fs.stat(indexPath);
+    if (stats.isFile()) return `/scenes/${slug}/index.html`;
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+// Any directory request that has no file gets its index.html instead,
+// so /scenes/<slug>/ works whether or not the visitor typed the slash.
+function withIndex(pathname) {
+  return pathname.endsWith('/') ? `${pathname}index.html` : pathname;
 }
 
 const server = http.createServer(async (req, res) => {
@@ -67,7 +95,12 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  const requestedPath = normalizedPath === '/' ? '/index.html' : normalizedPath;
+  // /scenes/<slug> (no trailing slash) → that scene's index.html
+  const sceneIndex = await resolveSceneIndex(normalizedPath);
+  const requestedPath = normalizedPath === '/'
+    ? '/index.html'
+    : (sceneIndex || withIndex(normalizedPath));
+
   const filePath = path.resolve(publicRoot, `.${requestedPath}`);
   if (!isInside(publicRoot, filePath)) {
     send(req, res, 403, 'Forbidden\n');

@@ -27,33 +27,31 @@
   const plate = document.querySelector('#theatre-plate');
   const lampBtn = document.querySelector('#theatre-lamp');
   const opNote = document.querySelector('[data-op-note]');
-  const shroudCount = document.querySelector('[data-shroud]');
-  const tagExtra = document.querySelector('.shroud-ridge.r4');
   const soundButtons = [...document.querySelectorAll('[data-sound-toggle]')];
   const soundLabels = [...document.querySelectorAll('[data-sound-label], .sound-text')];
   const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
 
   const themes = ['#f2f3f0', '#eceeeb', '#d3d8d6', '#15191c', '#0d1012', '#0d1012'];
   const titles = [
-    'DEMETER ATELIER — 一间不接受转诊的私人外科研究所',
-    'DEMETER ATELIER — 矫正项目',
-    'DEMETER ATELIER — 手术室 03',
-    'DEMETER ATELIER — 没有术后',
-    'DEMETER ATELIER — 今晚没有手术',
-    'DEMETER ATELIER — 他正在准备你的台子'
+    '梅麓疗养院 MEILU CARE — 把日子过得轻一点',
+    '梅麓疗养院 — 日常照护',
+    '梅麓疗养院 — 院区环境',
+    '梅麓疗养院 — 家属来信',
+    '梅麓疗养院 — 夜间巡房',
+    '梅麓疗养院 — 今晚巡房的人没在排班表上'
   ];
   const scenes = [
-    ['你已进入手术区域', '手术室里，只会有一个人醒着。', '白布下的形状，比正常人多了一处起伏。'],
-    ['04:31 / 无排班', '今晚没有手术。', '可手术灯已经亮了。'],
-    ['04:33 / 他站定了', '别让他缝完。', '你还没有被纠正。']
+    ['你已进入 B 区夜间病区', '这一层，只住着一个人。', '走廊尽头的灯，一直亮着。'],
+    ['04:31 / 无人接班', '今晚没有人值夜。', '可巡房记录还在往上加。'],
+    ['04:33 / 他停在门口', '别开门。', '他知道你还醒着。']
   ];
   const deskReplies = [
-    ['您好，这里是德墨忒尔研究所值班台。', '评估申请请出示你的原始照片。我们不接受已经做过修正的身体。本页面为虚构体验。'],
-    ['今晚的手术记录尚未归档。', '系统显示台次为空，但手术灯已经预热九十分钟。请留在等候区。'],
-    ['主刀医生：Dr. A. Voss。', '执业资格已于 1971 年注销。可档案显示，他从未停止执刀。'],
-    ['本轮没有术后记录。', '所有档案都停在「术中」一栏。请不要询问自己的结束时间。'],
-    ['今晚没有安排手术。', '手术台上的白布已经铺好，尺寸与你相符。'],
-    ['不要与他对视。', '他已经知道你醒着。请闭上眼，保持呼吸均匀，直到他离开。']
+    ['您好，这里是梅麓疗养院护理值班台。', '今天院区一切正常。需要协助，请按床头的呼叫铃。'],
+    ['夜班记录我们已经核对过一遍。', '02:00 到 04:00 的两次巡房，笔迹不是同一个人的。'],
+    ['今晚值班护士：＿＿ ＿＿。', '排班表上这一格一直是空的。没人记得她来过，也没人记得她走。'],
+    ['您问的出院记录，我们查过了。', 'B 区建区以来没有一份出院记录。所有床位都还显示在住。'],
+    ['今晚的夜班，没有人报名。', '值班台从 20:00 起就没有人接。您现在听到的是录好的声音。'],
+    ['请不要应门。', '门外的巡房不在今晚的排班表上。他没有钥匙，但门锁是他装的。']
   ];
 
   let stage = -1;
@@ -86,8 +84,10 @@
   function measure() {
     const y = window.scrollY;
     tops = chapters.map((c) => c.getBoundingClientRect().top + y);
-    descentTop = descent.getBoundingClientRect().top + y;
-    descentRange = Math.max(1, descent.offsetHeight - window.innerHeight);
+    if (descent) {
+      descentTop = descent.getBoundingClientRect().top + y;
+      descentRange = Math.max(1, descent.offsetHeight - window.innerHeight);
+    }
     pageRange = Math.max(1, root.scrollHeight - window.innerHeight);
   }
 
@@ -129,19 +129,11 @@
     text(openingSub, c[2]);
   }
 
-  function paintShroud(depth) {
-    if (shroudCount) text(shroudCount, depth > .28 ? 'UNDER THE SHEET: 5  ←  多出来的那一处' : 'UNDER THE SHEET: 4');
-    if (tagExtra) tagExtra.classList.toggle('extra-on', depth > .28);
-    css('--extra-glow', clamp((depth - .28) / .1).toFixed(3));
-    css('--shroud-opacity', clamp((depth - .02) / .1).toFixed(3));
-  }
-
   function render() {
     frame = null;
     try {
     measure();
     const y = window.scrollY;
-    paintShroud(clamp((y - descentTop) / descentRange));
     const line = y + window.innerHeight * .42;
     let next = 0;
     tops.forEach((top, i) => { if (line >= top) next = Math.min(i, chapters.length - 1); });
@@ -158,11 +150,6 @@
     css('--last-opacity', (clamp((depth - .3) / .07) * (1 - clamp((depth - .48) / .05))).toFixed(3));
     css('--final-opacity', (clamp((depth - .56) / .05) * (depth < .9 ? 1 : 0)).toFixed(3));
     css('--jump-opacity', depth > .9 ? '1' : '0');
-    css('--shroud-opacity', clamp((depth - .02) / .1).toFixed(3));
-    css('--extra-glow', clamp((depth - .28) / .1).toFixed(3));
-    if (tagExtra) tagExtra.classList.toggle('extra-on', depth > .28);
-    if (depth > .28 && shroudCount) text(shroudCount, 'UNDER THE SHEET: 5  ←  多出来的那一处');
-    else if (shroudCount) text(shroudCount, 'UNDER THE SHEET: 4');
 
     body.classList.toggle('approach', depth > .3 && depth < .9);
 
@@ -172,7 +159,7 @@
       css('--presence-opacity', clamp(.6 + (depth - .2)).toFixed(3));
     }
 
-    progress.style.transform = `scaleX(${clamp(y / pageRange)})`;
+    if (progress) progress.style.transform = `scaleX(${clamp(y / pageRange)})`;
     applyScene(depth > .3 ? 2 : depth > .14 ? 1 : 0);
     if (stage === 0 && y <= 1 && (jumped || beatShown || clearShown || caughtShown)) resetBeats();
     if (depth > .9 && !jumped) triggerJump();
@@ -180,12 +167,13 @@
     checkClear(depth);
     checkCaught(depth);
 
-    title(depth > .88 ? 'DEMETER ATELIER — 你现在是对称的' : depth > .56 ? 'DEMETER ATELIER — 别让他缝完' : titles[stage]);
-    text(hudInstruction, depth > .86 ? '他不需要你的同意' : depth > .56 ? '不要与他对视' : '保持清醒，继续向下 ↓');
+    title(depth > .88 ? '梅麓疗养院 — 他已经进来了' : depth > .56 ? '梅麓疗养院 — 别开门' : titles[stage]);
+    text(hudInstruction, depth > .86 ? '他已经进来了' : depth > .56 ? '不要在门缝里看他' : '保持安静，继续向下 ↓');
     text(hudTime, `04:33:${String(Math.floor(depth * 59)).padStart(2, '0')}`);
-    text(hudCount, depth > .3 ? `他还剩 ${Math.max(1, Math.round((1 - depth) * 11))} 针` : '档案 0333');
+    text(hudCount, depth > .3 ? `他离你还有 ${Math.round((1 - depth) * 11)} 步` : 'B 区 0333');
     updateSound();
     } catch (error) {
+      window.__mercyError = String(error && error.stack || error);
       if (!window.__mercyOnce) { window.__mercyOnce = true; console.error(error); }
     }
   }
@@ -278,13 +266,21 @@
 
   window.addEventListener('resize', () => schedule(), { passive: true });
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  function pinTop() {
-    if (window.location.hash || window.scrollY <= 0) return;
+  // Normalize a browser-restored offset on first entry only; never fight the visitor afterwards.
+  let firstEntry = true;
+  function pinTopOnFirstEntry() {
+    if (!firstEntry) return;
+    firstEntry = false;
+    if (window.location.hash) return;
+    // Instant, so a restored offset cannot animate back while the visitor scrolls.
+    const previous = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
     window.scrollTo(0, 0);
+    document.documentElement.style.scrollBehavior = previous;
   }
-  pinTop();
-  window.addEventListener('load', () => { pinTop(); window.setTimeout(pinTop, 0); schedule(); });
-  window.addEventListener('pageshow', (e) => { if (!e.persisted) pinTop(); schedule(); });
+  window.addEventListener('load', () => { pinTopOnFirstEntry(); schedule(); });
+  window.addEventListener('pageshow', () => { firstEntry = false; schedule(); });
+  window.setTimeout(() => { firstEntry = false; }, 1500);
   if ('ResizeObserver' in window) {
     const ro = new ResizeObserver(() => schedule());
     chapters.forEach((c) => ro.observe(c));
@@ -305,11 +301,11 @@
     body.classList.toggle('sound-on', on);
     soundButtons.forEach((btn) => {
       btn.setAttribute('aria-pressed', String(on));
-      btn.setAttribute('aria-label', on ? '关闭手术室环境音' : '开启手术室环境音');
+      btn.setAttribute('aria-label', on ? '关闭院区环境音' : '开启院区环境音');
       if (unavailable) btn.setAttribute('title', '环境音暂不可用，请稍后重试。');
       else btn.removeAttribute('title');
     });
-    soundLabels.forEach((l) => text(l, on ? '关闭环境音' : '聆听手术室环境'));
+    soundLabels.forEach((l) => text(l, on ? '关闭环境音' : '聆听院区环境'));
   }
 
   function createAudio() {
@@ -425,7 +421,7 @@
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       if (stage >= 2 && btn.matches('.quiet-link')) {
-        openDesk('呼叫已接通。主刀医生：Dr. A. Voss。执业资格：已注销。请不要躺上手术台。', btn);
+        openDesk('呼叫已接通。值班护理站：无人应答。请不要开门。', btn);
         return;
       }
       intakeOpener = btn;
@@ -453,16 +449,17 @@
   function updateOpNote() {
     if (!opNote) return;
     text(opNote, lit
-      ? stage >= 2 ? '无影灯已开。台上的人不是今晚的排班对象。' : '无影灯已开，手术按计划进行。'
-      : stage >= 2 ? '手术灯已关闭。请不要听见器械声。' : '本台手术：面部对称矫正');
+      ? stage >= 2 ? '花园灯亮了。架下有影子，比人多一个。' : '花园灯亮了，玫瑰看得很清楚。'
+      : stage >= 2 ? '花园灯关着。请不要往架下看。' : '架下已摆好椅子，等长者们出来');
   }
 
   function setLight(on) {
     lit = on;
+    if (!lampBtn || !plate) return;
     lampBtn.setAttribute('aria-pressed', String(on));
-    lampBtn.setAttribute('aria-label', on ? '关闭手术灯' : '打开手术灯');
+    lampBtn.setAttribute('aria-label', on ? '关闭花园灯' : '打开花园灯');
     plate.classList.toggle('lit', on);
-    text(lampBtn.querySelector('span:not(.dot)'), on ? '关闭手术灯' : '打开手术灯');
+    text(lampBtn.querySelector('span:not(.dot)'), on ? '关闭花园灯' : '打开花园灯');
     updateOpNote();
   }
 
@@ -492,13 +489,10 @@
     css('--last-opacity', '0');
     css('--final-opacity', '0');
     css('--jump-opacity', '0');
-    css('--shroud-opacity', '0');
-    css('--extra-glow', '0');
-    progress.style.transform = 'scaleX(0)';
-    text(hudInstruction, '保持清醒，继续向下 ↓');
+    if (progress) progress.style.transform = 'scaleX(0)';
+    text(hudInstruction, '保持安静，继续向下 ↓');
     text(hudTime, '04:33:00');
-    text(hudCount, '档案 0333');
-    if (shroudCount) text(shroudCount, 'UNDER THE SHEET: 4');
+    text(hudCount, 'B 区 0333');
     title(titles[0]);
     if (window.location.hash) history.replaceState(history.state, '', window.location.pathname + window.location.search);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

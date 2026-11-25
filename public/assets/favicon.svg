@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="favTitle favDesc">
+  <title id="favTitle">夜班护士站图标</title>
+  <desc id="favDesc">炭黑圆角方块，中央骨白色十字，右上角一枚暗红护士呼叫灯，带极弱辉光。配色仅暖白、骨色、炭黑、暗红，无绿色。</desc>
+  <defs>
+    <linearGradient id="vSquare" x1="10" y1="6" x2="54" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#24211d"/>
+      <stop offset=".55" stop-color="#181614"/>
+      <stop offset="1" stop-color="#0e0d0c"/>
+    </linearGradient>
+    <linearGradient id="vCross" x1="24" y1="20" x2="40" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7f2e6"/>
+      <stop offset=".6" stop-color="#e8e3d8"/>
+      <stop offset="1" stop-color="#c3bcae"/>
+    </linearGradient>
+    <radialGradient id="vLamp" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#e08374" stop-opacity=".95"/>
+      <stop offset=".35" stop-color="#a8412f" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#7d2b24" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vHalo" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff6e4" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#fff6e4" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="vRound">
+      <rect x="4" y="4" width="56" height="56" rx="13"/>
+    </clipPath>
+  </defs>
+
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#vSquare)"/>
+  <g clip-path="url(#vRound)">
+    <ellipse cx="24" cy="20" rx="26" ry="22" fill="url(#vHalo)"/>
+    <path d="M4 46 L60 46 L60 60 L4 60 Z" fill="#0b0a09" opacity=".5"/>
+  </g>
+  <rect x="4.75" y="4.75" width="54.5" height="54.5" rx="12.25" fill="none" stroke="#3a352e" stroke-width="1.5"/>
+
+  <path d="M28 16 h8 v8 h8 v8 h-8 v8 h-8 v-8 h-8 v-8 h8 Z" fill="url(#vCross)"/>
+  <path d="M28 16 h8 v2 h-8 Z" fill="#fffdf7" opacity=".5"/>
+
+  <ellipse cx="46" cy="18" rx="9" ry="9" fill="url(#vLamp)"/>
+  <rect x="42.8" y="14.8" width="6.4" height="6.4" rx="1.6" fill="#8f3327"/>
+  <ellipse cx="46" cy="18" rx="1.9" ry="1.9" fill="#e6a294"/>
+</svg>

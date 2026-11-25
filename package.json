@@ -2,7 +2,7 @@
   "name": "asca",
   "version": "0.1.0",
   "private": true,
-  "description": "MERCY HOUSE: an original scroll-driven medical horror website for a fictional long-stay care home",
+  "description": "DEMETER ATELIER: an original scroll-driven surgical-grotesque horror site for a fictional corrective-surgery institute",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {

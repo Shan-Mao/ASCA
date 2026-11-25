@@ -1,0 +1,17 @@
+name: Restart asca on push
+on:
+  push:
+    branches: [main]
+jobs:
+  restart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restart Nodaroo server
+        env:
+          PANEL_URL: https://panel.nodaroo.com
+          API_KEY: ${{ secrets.PTERODACTYL_API_KEY }}
+        run: |
+          set -e
+          UUID=$(curl -s -H "Authorization: Bearer $API_KEY" -H "Accept: application/json" "$PANEL_URL/api/client" | python3 -c "import json,sys; d=json.load(sys.stdin); print([s['attributes']['uuid'] for s in d['data'] if s['attributes']['name'] == 'asca'][0])")
+          curl -s -X POST -H "Authorization: Bearer $API_KEY" -H "Accept: application/json" -H "Content-Type: application/json" -d '{"signal": "restart"}' "$PANEL_URL/api/client/servers/$UUID/power"
+          echo "restart signal sent"

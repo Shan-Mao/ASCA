@@ -1,0 +1,168 @@
+[
+  {
+    "spec": "heritage-1971.jpg",
+    "source": {
+      "pageid": 9489264,
+      "title": "File:Tewksbury Hospital, Old Administration Building, MA.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Tewksbury_Hospital,_Old_Administration_Building,_MA.jpg",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Tewksbury_Hospital%2C_Old_Administration_Building%2C_MA.jpg/1920px-Tewksbury_Hospital%2C_Old_Administration_Building%2C_MA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Tewksbury_Hospital%2C_Old_Administration_Building%2C_MA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 2048,
+      "height": 1536,
+      "mime": "image/jpeg",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Faolin42\" title=\"User:Faolin42\">John Phelan</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "date": "2010-02-15",
+      "description": "Tewksbury Hospital, Old Administration Building, Tewksbury Massachusetts",
+      "score": 0
+    },
+    "checks": {
+      "bytes": 735219,
+      "width": 1920,
+      "height": 1440,
+      "sha256": "0c44b34e2cc777a82b28bee02462ef63285c45b8c7b03585ba02230dcc0f4e30",
+      "magic": "JPEG SOI/EOI",
+      "format": "JPEG"
+    },
+    "http_status": 200
+  },
+  {
+    "spec": "ward-corridor-day.jpg",
+    "source": {
+      "pageid": 92230229,
+      "title": "File:Corridor at Mater Private Hospital, Brisbane.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Corridor_at_Mater_Private_Hospital,_Brisbane.jpg",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Corridor_at_Mater_Private_Hospital%2C_Brisbane.jpg/1920px-Corridor_at_Mater_Private_Hospital%2C_Brisbane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Corridor_at_Mater_Private_Hospital%2C_Brisbane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 3733,
+      "height": 2800,
+      "mime": "image/jpeg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Kgbo\" title=\"User:Kgbo\">Kgbo</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "date": "2020-07-14 12:00:46",
+      "description": "Corridor at Mater Private Hospital, Brisbane",
+      "score": 0
+    },
+    "checks": {
+      "bytes": 512475,
+      "width": 1920,
+      "height": 1440,
+      "sha256": "4a091128f55ed2e35608f43ec588f8810c61da223c6b9cb08e991a8a65d21289",
+      "magic": "JPEG SOI/EOI",
+      "format": "JPEG"
+    },
+    "http_status": 200
+  },
+  {
+    "spec": "herbal-cup.jpg",
+    "source": {
+      "pageid": 22908530,
+      "title": "File:Lapacho als Tee zubereitet.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Lapacho_als_Tee_zubereitet.jpg",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Lapacho_als_Tee_zubereitet.jpg/1280px-Lapacho_als_Tee_zubereitet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Lapacho_als_Tee_zubereitet.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 1920,
+      "height": 1280,
+      "mime": "image/jpeg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Soultea\" title=\"User:Soultea\">soultea.de</a>/André Helbig",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "date": "2010-06-21 16:12:01",
+      "description": "Lapacho or Taheebo, a tisane made from the inner bark of Pink Ipê, Tabebuia impetiginosa",
+      "score": 0
+    },
+    "checks": {
+      "bytes": 69880,
+      "width": 1280,
+      "height": 853,
+      "sha256": "533ba59c90876da52563d2cc59a05cc37c2b713e0f7dc6e5432aab5551001719",
+      "magic": "JPEG SOI/EOI",
+      "format": "JPEG"
+    },
+    "http_status": 200
+  },
+  {
+    "spec": "archive-files.jpg",
+    "source": {
+      "pageid": 127350478,
+      "title": "File:Typewriter of Klaus Merz.jpg",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Typewriter_of_Klaus_Merz.jpg",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Typewriter_of_Klaus_Merz.jpg/3840px-Typewriter_of_Klaus_Merz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Typewriter_of_Klaus_Merz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "width": 4000,
+      "height": 3000,
+      "mime": "image/jpeg",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "artist": "<a href=\"//commons.wikimedia.org/wiki/User:Hadi\" title=\"User:Hadi\">Hadi</a>",
+      "credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "date": "2022-12-28",
+      "description": "Erika-Schreibmaschine des Autors Klaus Merz (Schweizerisches Literaturarchiv)",
+      "score": 13.8556
+    },
+    "http_status": 200,
+    "checks": {
+      "bytes": 1005291,
+      "width": 3840,
+      "height": 2880,
+      "sha256": "c09eb2b6ef438e9263cae3a58cee7a7f80de6052c634bc680424fc72bb3c74ad",
+      "magic": "JPEG SOI/EOI",
+      "format": "JPEG"
+    }
+  },
+  {
+    "spec": "clue-letter.svg",
+    "source": {
+      "title": "Sealed envelope (ernes_Busta_-_mail.svg)",
+      "artist": "ernes / OpenClipart",
+      "page_url": "https://freesvg.org/sealed-envelope-vector-image",
+      "image_url": "https://sources.debian.org/data/main/o/openclipart2/2.0%2Bdfsg-1/clipart/ernes/ernes_Busta_-_mail.svg",
+      "license": "Public domain dedication",
+      "license_url": "https://sources.debian.org/data/main/o/openclipart2/2.0%2Bdfsg-1/debian/copyright",
+      "fallback_reason": "FreeSVG and svgsilh requests returned HTTP 403; downloaded the unchanged OpenClipart original from its Debian source mirror.",
+      "mime": "image/svg+xml",
+      "changes": "filename only"
+    },
+    "http_status": 200,
+    "checks": {
+      "bytes": 18828,
+      "width": 200,
+      "height": 131.47299,
+      "sha256": "3dbbfc34441c3ce8647ee0994fdb11aeae027c09151eaf6d33da88916dd71121",
+      "format": "SVG",
+      "external_references": false,
+      "scripts": false
+    }
+  },
+  {
+    "spec": "clue-parchment.jpg",
+    "source": {
+      "pageid": 47641202,
+      "title": "File:Old paper1.jpg",
+      "artist": "Unknown author / The Digital Yard Sale",
+      "page_url": "https://commons.wikimedia.org/wiki/File:Old_paper1.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Old_paper1.jpg",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Old_paper1.jpg#Licensing",
+      "license_template": "PD-author",
+      "copyrighted": false,
+      "attribution_required": false,
+      "mime": "image/jpeg",
+      "original_bytes": 4112092,
+      "changes": "Resized to 400px wide; JPEG quality 84, optimized."
+    },
+    "http_status": 200,
+    "checks": {
+      "bytes": 31362,
+      "width": 400,
+      "height": 533,
+      "sha256": "8768805b9d51f3791806e2e975f8604de43cfeaa5a5f966de807ce2898053f40",
+      "format": "JPEG"
+    }
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "url": "https://freesvg.org/sealed-envelope-vector-illustration",
+  "curl_exit": 0,
+  "result": "403\nhttps://freesvg.org/sealed-envelope-vector-illustration\ntext/html; charset=UTF-8",
+  "stderr": "curl: (28) Operation timed out after 50006 milliseconds with 0 bytes received\n"
+}

@@ -1,0 +1,6 @@
+{
+  "url": "https://freesvg.org/download/8256",
+  "curl_exit": 0,
+  "result": "403\nhttps://freesvg.org/download/8256\ntext/html; charset=UTF-8",
+  "stderr": "curl: (28) Connection timed out after 50004 milliseconds\n"
+}

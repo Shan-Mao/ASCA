@@ -1,0 +1,6 @@
+{
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=%22wax%20seal%22%20envelope&gsrnamespace=6&gsrlimit=40&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Cextmetadata",
+  "curl_exit": 0,
+  "result": "200\nhttps://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch=%22wax%20seal%22%20envelope&gsrnamespace=6&gsrlimit=40&prop=imageinfo&iiprop=url%7Csize%7Cmime%7Cextmetadata\napplication/json; charset=utf-8",
+  "stderr": ""
+}

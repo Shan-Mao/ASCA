@@ -1,0 +1,6 @@
+{
+  "url": "https://openclipart.org/search/?query=letter",
+  "curl_exit": 0,
+  "result": "200\nhttps://openclipart.org/search/?query=letter\ntext/html; charset=UTF-8",
+  "stderr": ""
+}

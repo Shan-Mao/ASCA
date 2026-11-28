@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+date: Sat, 28 Nov 2026 17:03:40 GMT
+server: Apache
+x-content-type-options: nosniff
+x-frame-options: sameorigin
+referrer-policy: no-referrer
+x-xss-protection: 1
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=15552000
+last-modified: Wed, 05 Sep 2007 15:26:41 GMT
+etag: "498c-4396508534e40"
+content-length: 18828
+x-clacks-overhead: GNU Terry Pratchett
+content-type: image/svg+xml
+x-varnish: 1988955249
+age: 0
+via: 1.1 proxy-ca-01 (Varnish/7.7)
+accept-ranges: bytes
+x-backend: sources_sor
+

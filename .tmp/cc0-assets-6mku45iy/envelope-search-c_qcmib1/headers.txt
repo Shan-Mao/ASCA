@@ -1,0 +1,29 @@
+HTTP/1.1 200 OK
+date: Sat, 28 Nov 2026 16:56:14 GMT
+server: mw-api-ext.codfw.main-5f5bc694fb-fclhw
+x-content-type-options: nosniff
+x-search-id: 3qrxcqxw201tbes4i9wnjvskw
+content-security-policy: default-src 'self'; script-src 'none'; object-src 'none'
+x-frame-options: DENY
+content-disposition: inline; filename=api-result.json
+expires: Sat, 28 Nov 2026 17:56:14 GMT
+cache-control: max-age=3600, s-maxage=3600, public
+content-type: application/json; charset=utf-8
+age: 2
+accept-ranges: bytes
+x-cache: cp5024 miss, cp5024 miss
+x-cache-status: miss
+strict-transport-security: max-age=106384710; includeSubDomains; preload
+report-to: { "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0" }] }
+nel: { "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction": 0.0}
+set-cookie: WMF-Last-Access=28-Nov-2026;Path=/;HttpOnly;secure;Expires=Wed, 30 Dec 2026 12:00:00 GMT
+x-client-ip: 2408:8430:2420:c73:f4d7:3560:9e2f:b5a7
+vary: Accept-Encoding,X-Subdomain,Treat-as-Untrusted,X-Forwarded-Proto,Cookie,Authorization,User-Agent
+set-cookie: GeoIP=CN:LN:Shenyang:41.78:123.43:v4; Path=/; secure; Domain=.wikimedia.org
+set-cookie: NetworkProbeLimit=0.001;Path=/;Secure;SameSite=None;Max-Age=3600
+set-cookie: WMF-Uniq=US_FNZBb5M-R-Psa_mu4ogQmAAAAAFvdhtuYyZCpSCNjpJOv4A2zkQXx2Kuvtw0f;Domain=commons.wikimedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Sun, 28 Nov 2027 00:00:00 GMT
+transfer-encoding: chunked
+x-request-id: 056670a0-0c0c-45b2-bff9-6bb31651f555
+x-analytics: 
+server-timing: cache;desc="miss", host;desc="cp5024",co_id;desc="4270800952"
+

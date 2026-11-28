@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+content-type: image/jpeg
+x-object-meta-sha1base36: tp07ykrk0izydjg3xd3wb7z66xy5p55
+last-modified: Sun, 20 Mar 2016 19:28:14 GMT
+accept-ranges: bytes
+content-length: 4112092
+date: Sat, 28 Nov 2026 16:56:22 GMT
+x-ratelimit-limit: 600000, 600000;w=60
+x-ratelimit-remaining: 599999
+x-ratelimit-reset: 38
+server: envoy
+etag: 3f9e6fd6a7a50f47b519d5533716b2ca
+age: 0
+x-cache: cp5029 hit, cp5029 miss
+x-cache-status: hit-local
+server-timing: cache;desc="hit-local", host;desc="cp5029"
+strict-transport-security: max-age=106384710; includeSubDomains; preload
+report-to: { "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0" }] }
+nel: { "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction": 0.0}
+x-client-ip: 2408:8430:2420:c73:f4d7:3560:9e2f:b5a7
+x-content-type-options: nosniff
+reporting-endpoints: csp_endpoint="https://commons.wikimedia.org/w/api.php?reportonly=1&source=image&action=cspreport&format=json"
+content-security-policy-report-only: default-src 'none'; script-src 'none'; style-src 'unsafe-inline' data:; font-src data:; img-src data: https://upload.wikimedia.org/favicon.ico https://thumb.wikimedia.org/favicon.ico; connect-src https://upload.wikimedia.org/favicon.ico https://thumb.wikimedia.org/favicon.ico; media-src data: 'self'; object-src 'none'; worker-src 'none'; manifest-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; report-uri https://commons.wikimedia.org/w/api.php?reportonly=1&source=image&action=cspreport&format=json; report-to csp_endpoint
+access-control-allow-origin: *
+access-control-expose-headers: Age, Date, Content-Length, Content-Range, X-Content-Duration, X-Cache
+timing-allow-origin: *
+set-cookie: WMF-Uniq=_Xk3SYGP0Y-0EEOeknB1xwQmAAAAAFvdZD3iJXuZMLs6SBFB_pxHBqQgfN36UBRN;Domain=upload.wikimedia.org;Path=/;HttpOnly;secure;SameSite=None;Expires=Sun, 28 Nov 2027 00:00:00 GMT
+x-request-id: a4ea4d9b-1dfa-42ca-aad2-f7cc2c85ffce
+x-analytics: 
+

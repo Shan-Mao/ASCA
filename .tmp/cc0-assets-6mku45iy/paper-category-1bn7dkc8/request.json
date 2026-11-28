@@ -1,0 +1,6 @@
+{
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=categorymembers&gcmtitle=Category:Paper_textures&gcmtype=file&gcmlimit=200&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata&iiurlwidth=400",
+  "curl_exit": 0,
+  "result": "200\nhttps://commons.wikimedia.org/w/api.php?action=query&format=json&generator=categorymembers&gcmtitle=Category:Paper_textures&gcmtype=file&gcmlimit=200&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata&iiurlwidth=400\napplication/json; charset=utf-8",
+  "stderr": ""
+}
